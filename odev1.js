@@ -1,15 +1,13 @@
-/**
- * Array için includesCi isimli yeni bir method(prototype) yazmanız isteniyor.
- * Method’a verilen parametrenin, array’in içerisindeki elemanların küçük/büyük
- * harf duyarlılığına bakmaksızın var olup olmadığının kontrolünü yapabilmesi gerekiyor.
- */
+const arr = ["reNo", "BmW", "mercedes"];
 
-//İpucu 1: Array.prototype.includesCi =  dedikten sonra metodunuzu yazabilirsiniz
-//İpucu 2: "HaKaN".toUppercase() size "HAKAN" sonucunu üretir
+Array.prototype.includesCi = function (param) {
+  for (let i = 0; i < this.length; i++) {
+    if (param.toLowerCase() === this[i].toLowerCase()) {
+      return true;
+    }
+  }
+  return false;
+};
+let res = arr.includesCi("bmw");
 
-//Test :
-
-const array = ["Patika","219","Akbank","React","Bootcamp"]
-
-console.log(array.includesCi("patika")===true ? "Beklendiği gibi" : "Beklendiği gibi değil")
-console.log(array.includesCi("kırmızı")===false ? "Beklendiği gibi" : "Beklendiği gibi değil")
+console.log(res);
